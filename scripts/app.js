@@ -1,26 +1,26 @@
 let btn = document.querySelector("#btn");
 let input = document.querySelector("#input");
 let listtodo = document.querySelector(".listtodo ul");
-let li = document.querySelectorAll(".list");
+let li = document.querySelectorAll(".li");
 btn.addEventListener("click", () => {
   let valinput = input.value;
-  listtodo.innerHTML += `
-        <div class="list">
-            <li class="li">${valinput}</li>
-            <span>
-                <img class="trash" src="./src/img/del.svg" />
-            </span>
-          </div>
-    `;
+  let linew = document.createElement("li");
+  linew.classList.add("li");
+  linew.innerHTML = `${valinput}
+            <div>
+              <img class="trash" src="./src/img/del.svg" />
+              <img class="check" src="./src/img/check.svg" />
+            </div>`;
+  if (valinput.length > 0) {
+    listtodo.append(linew);
+  }
   input.value = "";
 });
-li.forEach((element) => {
-  element.addEventListener("click", (e) => {
-    if (e.target.classList.contains("trash")) {
-      e.target.parentElement.remove();
-    }
-    if (e.target.classList.contains("list")) {
-      e.target.classList.toggle("did");
-    }
-  });
+listtodo.addEventListener("click", (e) => {
+  if (e.target.classList.contains("trash")) {
+    e.target.parentElement.parentElement.remove();
+  }
+  if (e.target.classList.contains("check")) {
+    e.target.parentElement.parentElement.classList.toggle("did");
+  }
 });
