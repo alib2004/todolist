@@ -9,7 +9,6 @@
 }
 body {
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   font-family: iransans;
@@ -20,10 +19,14 @@ body {
   border-radius: 15px;
   text-align: center;
   overflow: hidden;
+  margin: 5px;
+  margin-top: 30px;
 }
+
 .box1 {
   background-color: orange;
   padding: 30px;
+  margin: auto;
   width: 500px;
 }
 h1 {
